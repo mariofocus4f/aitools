@@ -44,7 +44,7 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-primary" />
+            <div className="w-8 h-8 rounded-lg gradient-primary" />
             <span className="font-bold text-xl">TrustyAI</span>
           </Link>
 

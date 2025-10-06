@@ -33,7 +33,7 @@ export default function HomePage() {
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Odkryj najlepsze{' '}
-              <span className="bg-gradient-primary bg-clip-text text-transparent">
+              <span className="gradient-primary bg-clip-text text-transparent">
                 narzędzia AI
               </span>
             </h1>

@@ -167,7 +167,7 @@ export default function PromptDetailPage({ params }: { params: { slug: string } 
                             className="w-10 h-10 rounded-lg object-cover"
                           />
                         ) : (
-                          <div className="w-10 h-10 rounded-lg bg-gradient-primary" />
+                          <div className="w-10 h-10 rounded-lg gradient-primary" />
                         )}
                         <div className="flex-1">
                           <p className="font-medium text-sm">{tool.name}</p>

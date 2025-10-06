@@ -160,7 +160,7 @@ export function NewsletterCard() {
           <div className="pt-4 border-t border-border">
             <div className="flex items-center justify-center gap-2 text-xs text-muted">
               <div className="flex -space-x-2">
-                <div className="w-6 h-6 rounded-full bg-gradient-primary border-2 border-white dark:border-surface" />
+                <div className="w-6 h-6 rounded-full gradient-primary border-2 border-white dark:border-surface" />
                 <div className="w-6 h-6 rounded-full bg-gradient-accent border-2 border-white dark:border-surface" />
                 <div className="w-6 h-6 rounded-full bg-primary-300 border-2 border-white dark:border-surface" />
               </div>

@@ -36,7 +36,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                   className="w-24 h-24 rounded-2xl object-cover"
                 />
               ) : (
-                <div className="w-24 h-24 rounded-2xl bg-gradient-primary" />
+                <div className="w-24 h-24 rounded-2xl gradient-primary" />
               )}
             </div>
 
@@ -396,7 +396,7 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                           className="w-12 h-12 rounded-xl object-cover"
                         />
                       ) : (
-                        <div className="w-12 h-12 rounded-xl bg-gradient-primary" />
+                        <div className="w-12 h-12 rounded-xl gradient-primary" />
                       )}
                       <h3 className="font-semibold">{similarTool.name}</h3>
                     </div>

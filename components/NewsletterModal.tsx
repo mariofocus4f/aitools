@@ -227,7 +227,7 @@ export function NewsletterModal({ isOpen, onClose }: NewsletterModalProps) {
             <div className="mt-6 pt-6 border-t border-border">
               <div className="flex items-center justify-center gap-2 text-sm text-muted">
                 <div className="flex -space-x-2">
-                  <div className="w-8 h-8 rounded-full bg-gradient-primary border-2 border-white dark:border-surface" />
+                  <div className="w-8 h-8 rounded-full gradient-primary border-2 border-white dark:border-surface" />
                   <div className="w-8 h-8 rounded-full bg-gradient-accent border-2 border-white dark:border-surface" />
                   <div className="w-8 h-8 rounded-full bg-primary-300 border-2 border-white dark:border-surface" />
                 </div>

@@ -144,7 +144,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                               className="w-10 h-10 rounded-lg object-cover"
                             />
                           ) : (
-                            <div className="w-10 h-10 rounded-lg bg-gradient-primary" />
+                            <div className="w-10 h-10 rounded-lg gradient-primary" />
                           )}
                           <div className="flex-1">
                             <p className="font-medium">{tool.name}</p>
@@ -174,7 +174,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
                             <div className="flex items-center gap-2">
                               <p className="font-medium">{prompt.title}</p>
                               {prompt.isPremium && (
-                                <span className="px-1.5 py-0.5 rounded text-xs bg-gradient-primary text-white font-semibold">
+                                <span className="px-1.5 py-0.5 rounded text-xs gradient-primary text-white font-semibold">
                                   PRO
                                 </span>
                               )}

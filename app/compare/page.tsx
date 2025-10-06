@@ -47,7 +47,7 @@ export default function ComparePage() {
                     {tool.logo ? (
                       <img src={tool.logo} alt={tool.name} className="w-12 h-12 rounded-xl object-cover" />
                     ) : (
-                      <div className="w-12 h-12 rounded-xl bg-gradient-primary" />
+                      <div className="w-12 h-12 rounded-xl gradient-primary" />
                     )}
                     <div className="flex-1">
                       <h3 className="font-semibold">{tool.name}</h3>
@@ -78,7 +78,7 @@ export default function ComparePage() {
                         {tool.logo ? (
                           <img src={tool.logo} alt={tool.name} className="w-16 h-16 rounded-xl object-cover" />
                         ) : (
-                          <div className="w-16 h-16 rounded-xl bg-gradient-primary" />
+                          <div className="w-16 h-16 rounded-xl gradient-primary" />
                         )}
                         <div>
                           <div className="font-semibold">{tool.name}</div>

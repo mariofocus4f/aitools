@@ -29,7 +29,7 @@ export function ToolCard({ tool, showAffiliateInfo = false }: ToolCardProps) {
             className="size-12 rounded-xl object-cover flex-shrink-0"
           />
         ) : (
-          <div className="size-12 rounded-xl bg-gradient-primary flex-shrink-0" />
+          <div className="size-12 rounded-xl gradient-primary flex-shrink-0" />
         )}
         
         <div className="flex-1 min-w-0">

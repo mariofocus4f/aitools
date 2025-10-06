@@ -32,7 +32,7 @@ export function PromptCard({ prompt }: PromptCardProps) {
           </div>
         </div>
         {prompt.isPremium && (
-          <span className="px-2 py-1 rounded-full bg-gradient-primary text-white text-xs font-semibold">
+          <span className="px-2 py-1 rounded-full gradient-primary text-white text-xs font-semibold">
             PRO
           </span>
         )}
