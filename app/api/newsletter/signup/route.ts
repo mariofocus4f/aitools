@@ -1,7 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server'
+                                                                                                                                                  import { NextRequest, NextResponse } from 'next/server'
 import MailerLite from 'mailerlite-api-v2-node'
-
-const mailerLite = new MailerLite(process.env.MAILERLITE_API_TOKEN!)
 
 export async function POST(request: NextRequest) {
   try {
@@ -22,6 +20,9 @@ export async function POST(request: NextRequest) {
         { status: 500 }
       )
     }
+
+    // Initialize MailerLite inside the function
+    const mailerLite = new (MailerLite as any)(process.env.MAILERLITE_API_TOKEN)
 
     // Add subscriber to MailerLite with double opt-in
     const response = await mailerLite.subscribers.create({
