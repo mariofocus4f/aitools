@@ -12,9 +12,9 @@ export default function RegulaminPage() {
         <div className="glass-card rounded-2xl p-8 shadow-card space-y-6">
           <section>
             <h2 className="text-2xl font-bold mb-4">§ 1. Postanowienia ogólne</h2>
-            <p className="text-muted leading-relaxed">
-              Niniejszy regulamin określa zasady korzystania z serwisu TrustyAI.pl (dalej: "Serwis"), prowadzonego przez [Nazwa firmy] z siedzibą w [Adres].
-            </p>
+    <p className="text-muted leading-relaxed">
+      Niniejszy regulamin określa zasady korzystania z serwisu TrustyAI.pl (dalej: &quot;Serwis&quot;), prowadzonego przez [Nazwa firmy] z siedzibą w [Adres].
+    </p>
           </section>
 
           <section>

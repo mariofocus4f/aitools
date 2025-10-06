@@ -193,7 +193,7 @@ export function SearchModal({ isOpen, onClose }: SearchModalProps) {
               {/* No Results */}
               {filteredTools.length === 0 && filteredPrompts.length === 0 && (
                 <div className="text-center py-12 text-muted">
-                  <p>Nie znaleziono wyników dla "{query}"</p>
+                  <p>Nie znaleziono wyników dla &quot;{query}&quot;</p>
                   <p className="text-sm mt-2">Spróbuj innego zapytania</p>
                 </div>
               )}
