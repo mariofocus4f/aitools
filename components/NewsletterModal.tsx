@@ -108,9 +108,9 @@ export function NewsletterModal({ isOpen, onClose }: NewsletterModalProps) {
             <div className="w-16 h-16 rounded-full bg-success/20 flex items-center justify-center mx-auto mb-4">
               <Check className="text-success" size={32} />
             </div>
-            <h2 className="text-2xl font-bold mb-2">Dziękujemy!</h2>
+            <h2 className="text-2xl font-bold mb-2">Sprawdź email!</h2>
             <p className="text-muted">
-              Właśnie zapisałeś się do newslettera. Sprawdź skrzynkę email.
+              Wysłaliśmy link potwierdzający na Twój adres email. Kliknij w link, aby dokończyć zapis do newslettera.
             </p>
           </div>
         ) : (

@@ -93,8 +93,8 @@ export function NewsletterCard() {
           <div className="w-12 h-12 rounded-full bg-success/20 flex items-center justify-center mx-auto mb-3">
             <Check className="text-success" size={24} />
           </div>
-          <p className="font-semibold text-lg mb-1">Dziękujemy za subskrypcję!</p>
-          <p className="text-sm text-muted">Sprawdź swoją skrzynkę email</p>
+          <p className="font-semibold text-lg mb-1">Sprawdź email!</p>
+          <p className="text-sm text-muted">Wysłaliśmy link potwierdzający</p>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-4">
