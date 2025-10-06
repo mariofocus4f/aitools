@@ -8,8 +8,34 @@ export default function CategoriesPage() {
     <div className="min-h-screen py-12">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          {/* Mobile Navigation */}
+          <div className="lg:hidden order-1 mb-6">
+            <div className="glass-card rounded-2xl p-4 shadow-card">
+              <h3 className="font-bold mb-3 text-sm">Szybka nawigacja</h3>
+              <div className="grid grid-cols-2 gap-2">
+                {mockCategories.slice(0, 6).map(category => {
+                  const toolCount = getToolsByCategory(category.slug).length
+                  return (
+                    <a
+                      key={category.id}
+                      href={`#${category.slug}`}
+                      className="flex items-center gap-2 px-2 py-1 rounded-lg hover:bg-surface transition text-xs group"
+                    >
+                      <span className="text-sm">{category.icon}</span>
+                      <div className="flex-1 min-w-0">
+                        <p className="font-medium group-hover:text-primary-500 transition truncate">
+                          {category.name}
+                        </p>
+                        <p className="text-xs text-muted">{toolCount}</p>
+                      </div>
+                    </a>
+                  )
+                })}
+              </div>
+            </div>
+          </div>
           {/* Sidebar */}
-          <aside className="lg:col-span-1">
+          <aside className="lg:col-span-1 order-2 lg:order-1">
             <div className="glass-card rounded-2xl p-6 shadow-card sticky top-20">
               <h3 className="font-bold mb-4">Szybka nawigacja</h3>
               <nav className="space-y-2">
@@ -45,7 +71,7 @@ export default function CategoriesPage() {
           </aside>
 
           {/* Main Content */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 order-3 lg:order-2">
             <div className="mb-12">
               <h1 className="text-4xl font-bold mb-4">Wszystkie kategorie</h1>
               <p className="text-xl text-muted">
