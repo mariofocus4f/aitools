@@ -336,7 +336,6 @@ export const mockTools: Tool[] = [
     integrations: ['Notion', 'Slack', 'Google Drive', 'Figma'],
     verifiedByEditor: true,
     screenshots: [],
-    websiteUrl: 'https://www.notion.so/product/ai',
     foundedYear: 2023,
     teamSize: '200+',
     pros: ['Świetna integracja z Notion', 'Niedroga cena', 'Unlimited usage'],
