@@ -1,0 +1,170 @@
+// Prisma schema for BestAITools
+// Database: PostgreSQL
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Tool model
+model Tool {
+  id                String            @id @default(cuid())
+  name              String
+  domain            String
+  slug              String            @unique
+  shortDescription  String
+  longDescription   String            @db.Text
+  logo              String?
+  features          String[]
+  pricingModels     PricingModel[]
+  tags              String[]
+  integrations      String[]
+  verifiedByEditor  Boolean           @default(false)
+  screenshots       String[]
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+  
+  // Relations
+  categories        Category[]        @relation("ToolCategories")
+  affiliateProgram  AffiliateProgram?
+  submissions       Submission[]
+  clicks            AffiliateClick[]
+  
+  @@index([slug])
+  @@index([verifiedByEditor])
+  @@index([createdAt])
+}
+
+// Affiliate Program model
+model AffiliateProgram {
+  id                String   @id @default(cuid())
+  toolId            String   @unique
+  commissionType    CommissionType
+  commissionValue   Float
+  cookieWindowDays  Int
+  network           String
+  affiliateLink     String
+  estimatedEpc      Float    @default(0)
+  lastChecked       DateTime @default(now())
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  
+  // Relations
+  tool              Tool     @relation(fields: [toolId], references: [id], onDelete: Cascade)
+  
+  @@index([estimatedEpc])
+}
+
+// Category model
+model Category {
+  id          String     @id @default(cuid())
+  name        String
+  slug        String     @unique
+  icon        String?
+  description String?
+  parentId    String?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  
+  // Relations
+  parent      Category?  @relation("CategoryParent", fields: [parentId], references: [id])
+  children    Category[] @relation("CategoryParent")
+  tools       Tool[]     @relation("ToolCategories")
+  
+  @@index([slug])
+  @@index([parentId])
+}
+
+// Submission model
+model Submission {
+  id               String           @id @default(cuid())
+  submitterName    String
+  submitterEmail   String
+  status           SubmissionStatus @default(NEW)
+  reviewerComments String?          @db.Text
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+  
+  // Tool data (JSON)
+  toolId           String?
+  toolName         String
+  toolDomain       String
+  toolDescription  String           @db.Text
+  toolCategories   String[]
+  toolPricingModels String[]
+  
+  // Relations
+  tool             Tool?            @relation(fields: [toolId], references: [id])
+  
+  @@index([status])
+  @@index([createdAt])
+}
+
+// Newsletter Subscription model
+model NewsletterSubscription {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  subscribedAt DateTime @default(now())
+  active       Boolean  @default(true)
+  
+  @@index([email])
+  @@index([subscribedAt])
+}
+
+// Affiliate Click tracking
+model AffiliateClick {
+  id        String   @id @default(cuid())
+  toolId    String
+  timestamp DateTime @default(now())
+  userAgent String?
+  referer   String?
+  ipAddress String?
+  country   String?
+  
+  // Relations
+  tool      Tool     @relation(fields: [toolId], references: [id], onDelete: Cascade)
+  
+  @@index([toolId])
+  @@index([timestamp])
+}
+
+// Featured Listing (sponsored)
+model FeaturedListing {
+  id           String   @id @default(cuid())
+  toolId       String
+  position     String   // 'homepage', 'category', 'newsletter'
+  startDate    DateTime
+  endDate      DateTime
+  pricePaid    Float
+  active       Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  
+  @@index([active])
+  @@index([startDate, endDate])
+}
+
+// Enums
+enum PricingModel {
+  FREE
+  FREEMIUM
+  SUBSCRIPTION
+  PAY_PER_USE
+}
+
+enum CommissionType {
+  CPA
+  RECURRING
+  FIXED
+}
+
+enum SubmissionStatus {
+  NEW
+  UNDER_REVIEW
+  APPROVED
+  REJECTED
+}
+
