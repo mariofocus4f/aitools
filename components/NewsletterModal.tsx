@@ -71,11 +71,20 @@ export function NewsletterModal({ isOpen, onClose }: NewsletterModalProps) {
           onClose()
         }, 2000)
       } else {
-        setError('Wystąpił błąd. Spróbuj ponownie.')
+        const data = await response.json().catch(() => ({} as any))
+        if (response.status === 400) {
+          setError('Ten adres jest już zapisany lub nieprawidłowy. Sprawdź email/spam.')
+        } else if (response.status === 401) {
+          setError('Błąd uwierzytelniania usługi newslettera. Spróbuj ponownie później.')
+        } else if (response.status === 429) {
+          setError('Za dużo prób. Spróbuj ponownie za chwilę.')
+        } else {
+          setError(data?.error || 'Wystąpił błąd. Spróbuj ponownie.')
+        }
       }
     } catch (error) {
       console.error('Newsletter signup error:', error)
-      setError('Wystąpił błąd. Spróbuj ponownie.')
+      setError('Nie udało się połączyć z serwerem. Spróbuj ponownie.')
     } finally {
       setLoading(false)
     }
