@@ -80,22 +80,50 @@ export function NewsletterBanner() {
   return (
     <section className="bg-gradient-to-r from-primary-500 to-accent-blue py-8">
       <div className="container mx-auto px-4">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
           {/* Left side - Content */}
-          <div className="flex items-center gap-4 text-white">
+          <div className="flex items-start gap-4 text-white w-full lg:w-auto">
             <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0">
               <Mail size={24} />
             </div>
             <div>
               <h3 className="font-bold text-lg mb-1">Top 10 Weekly AI Tools</h3>
-              <p className="text-sm opacity-90">
-                Cotygodniowy newsletter z najlepszymi narzędziami AI, promptami i automatyzacją
+              <p className="text-sm opacity-90 mb-2">
+                Cotygodniowy newsletter z najlepszymi narzędziami AI, wybranymi promptami i przykładami automatyzacji. Bez spamu, tylko wartość.
               </p>
+              
+              {/* Benefits */}
+              <div className="flex flex-wrap gap-3 text-xs">
+                <div className="flex items-center gap-1">
+                  <span>🎯</span>
+                  <span className="opacity-90">10 najlepszych narzędzi</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <span>⚡</span>
+                  <span className="opacity-90">Gotowe prompty AI</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <span>🤖</span>
+                  <span className="opacity-90">Automatyzacje</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <span>💰</span>
+                  <span className="opacity-90">Exclusive deals</span>
+                </div>
+              </div>
+
+              {/* Testimonial */}
+              <div className="mt-3 p-2 bg-white/10 rounded-lg">
+                <p className="text-xs italic opacity-90 mb-1">
+                  "Dzięki temu newsletterowi znalazłem 3 narzędzia AI, które oszczędzają mi 5h tygodniowo!"
+                </p>
+                <p className="text-xs opacity-75">- Anna K., Marketing Manager</p>
+              </div>
             </div>
           </div>
 
           {/* Right side - Form */}
-          <div className="flex-1 max-w-md w-full">
+          <div className="flex-1 max-w-md w-full lg:w-auto">
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
               <div className="flex-1">
                 <input
