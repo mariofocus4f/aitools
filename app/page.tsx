@@ -1,6 +1,5 @@
 import { SearchInput } from '@/components/SearchInput'
 import { ToolCard } from '@/components/ToolCard'
-import { NewsletterCard } from '@/components/NewsletterCard'
 import { PromptCard } from '@/components/PromptCard'
 import { 
   getFeaturedTools, 
@@ -186,14 +185,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Newsletter */}
-      <section className="py-16 bg-surface/50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto">
-            <NewsletterCard />
-          </div>
-        </div>
-      </section>
     </div>
   )
 }

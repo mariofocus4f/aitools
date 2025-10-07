@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { Navbar } from '@/components/Navbar'
 import { ThemeProvider } from '@/components/ThemeProvider'
+import { NewsletterBanner } from '@/components/NewsletterBanner'
 
 export const metadata: Metadata = {
   title: 'TrustyAI - Zaufany katalog narzędzi AI',
@@ -27,7 +28,8 @@ export default function RootLayout({
           <main className="min-h-screen">
             {children}
           </main>
-          <footer className="border-t border-border bg-surface mt-20">
+          <NewsletterBanner />
+          <footer className="border-t border-border bg-surface">
             <div className="container mx-auto px-4 py-12">
               <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
