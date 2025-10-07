@@ -1,10 +1,9 @@
-'use client'
-
 import { mockTools } from '@/lib/mockData'
 import { workflowPrompts } from '@/lib/workflowyData'
 import { notFound } from 'next/navigation'
 import { ExternalLink, Check, TrendingUp, Calendar, Tag, BookOpen, Gift, Copy } from 'lucide-react'
 import Link from 'next/link'
+import { CopyButton } from '@/components/CopyButton'
 
 export function generateStaticParams() {
   return mockTools.map((tool) => ({
@@ -434,13 +433,13 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                   </div>
                   
                   <div className="flex gap-2">
-                    <button
-                      onClick={() => navigator.clipboard.writeText(workflow.prompt)}
+                    <CopyButton
+                      text={workflow.prompt}
                       className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors text-sm"
                     >
                       <Copy size={16} />
                       Skopiuj prompt
-                    </button>
+                    </CopyButton>
                     <Link href={`/workflowy/${workflow.id}`}>
                       <button className="px-4 py-2 border border-border rounded-lg hover:bg-surface transition-colors text-sm">
                         Zobacz szczegóły
