@@ -1,0 +1,7 @@
+Title,Status,Type,Issue date,Persona/Tags,Priority,Owner,Copy status,Links (label|url|utm_campaign; ...),Tools (slugs, comma),Prompts (slugs, comma),Notes
+TrustyAI Weekly #001,ready,weekly,2025-10-10,"#ForMarketers,#ForDevelopers",high,Mariusz,draft,"Midjourney starter|https://www.midjourney.com|weekly_20251010; ChatGPT Plus|https://chat.openai.com|weekly_20251010","midjourney,chatgpt","seo-brief,code-review","10 narzędzi tygodnia + 3 prompty + 1 automatyzacja"
+Welcome 1: Start here,ready,welcome,,"#All",high,Mariusz,approved,"Top 5 AI tools|https://trustyai.pl/tools|welcome_step1","chatgpt,jasper-ai,notion-ai", "starter-email,first-automation","Powitalny + linki do narzędzi i CTA do preferencji roli"
+Welcome 2: Prompts by role,idea,welcome,,"#ForMarketers,#ForDevelopers,#ForHR",medium,Mariusz,draft,"Prompts by role|https://trustyai.pl/prompts|welcome_step2","","marketing-headline,job-description","Wybór ról + przykładowe prompty + link do katalogu"
+Welcome 3: Automations and deals,idea,welcome,,"#All",medium,Mariusz,outline,"Exclusive deals|https://trustyai.pl/deals|welcome_step3; Zapier intro|https://zapier.com|welcome_step3","zapier,make","newsletter-summary","Proste automatyzacje + 2-3 zniżki partnerskie"
+Sales special: AI for outreach,idea,campaign,2025-10-20,"#ForSales",medium,Magda,outline,"Cold email frameworks|https://trustyai.pl/prompts/sales-cold-email|campaign_sales_202510","close,apollo","sales-email,objection-handler","Case study + 2 prompty + narzędzia do prospectingu"
+
