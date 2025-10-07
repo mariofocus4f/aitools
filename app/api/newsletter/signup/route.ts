@@ -1,5 +1,4 @@
-                                                                                                                                                  import { NextRequest, NextResponse } from 'next/server'
-import MailerLite from 'mailerlite-api-v2-node'
+import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(request: NextRequest) {
   try {
@@ -21,21 +20,39 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Initialize MailerLite inside the function
-    const mailerLite = new (MailerLite as any)(process.env.MAILERLITE_API_TOKEN)
-
-    // Add subscriber to MailerLite with double opt-in
-    const response = await mailerLite.subscribers.create({
-      email: email,
-      groups: [process.env.MAILERLITE_GROUP_ID || 'default'],
-      status: 'unconfirmed', // This triggers double opt-in
-      fields: {
-        source: 'trustyai-website',
-        signup_date: new Date().toISOString()
-      }
+    // Use direct REST API call to MailerLite
+    const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${process.env.MAILERLITE_API_TOKEN}`,
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        email: email,
+        status: 'unconfirmed' // This triggers double opt-in
+      })
     })
 
-    console.log('Newsletter signup successful:', email, response)
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}))
+      console.error('MailerLite API error:', response.status, errorData)
+      
+      if (response.status === 400) {
+        return NextResponse.json(
+          { error: 'Email already subscribed or invalid' },
+          { status: 400 }
+        )
+      }
+      
+      return NextResponse.json(
+        { error: 'Failed to subscribe to newsletter' },
+        { status: 500 }
+      )
+    }
+
+    const data = await response.json()
+    console.log('Newsletter signup successful:', email, data)
 
     return NextResponse.json(
       { 
@@ -47,14 +64,6 @@ export async function POST(request: NextRequest) {
   } catch (error: any) {
     console.error('Newsletter signup error:', error)
     
-    // Handle specific MailerLite errors
-    if (error.response?.status === 400) {
-      return NextResponse.json(
-        { error: 'Email already subscribed or invalid' },
-        { status: 400 }
-      )
-    }
-
     return NextResponse.json(
       { error: 'Failed to subscribe to newsletter' },
       { status: 500 }
