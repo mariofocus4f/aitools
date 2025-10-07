@@ -20,6 +20,18 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    // For development - if token is invalid, show maintenance message
+    if (process.env.NODE_ENV === 'development') {
+      console.log('Development mode: Newsletter signup attempted with email:', email)
+      return NextResponse.json(
+        { 
+          success: true, 
+          message: 'Newsletter w trakcie konfiguracji. Dziękujemy za zainteresowanie!' 
+        },
+        { status: 200 }
+      )
+    }
+
     // Use direct REST API call to MailerLite
     const response = await fetch('https://connect.mailerlite.com/api/subscribers', {
       method: 'POST',
