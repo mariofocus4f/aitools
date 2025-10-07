@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     title: 'TrustyAI - Zaufany katalog narzędzi AI',
     description: 'Zaufany katalog narzędzi AI z funkcją wyszukiwania, porównywania i afiliacji.',
     images: ['/og-image.jpg'],
-    creator: '@trustyai',
+    creator: '@Trustyai_net',
   },
   verification: {
     google: 'your-google-verification-code',
@@ -64,8 +64,31 @@ export default function RootLayout({
     <html lang="pl" suppressHydrationWarning>
       <head>
         <StructuredData type="website" />
+        {/* Google Tag Manager */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+              })(window,document,'script','dataLayer','GTM-MT292JCD');
+            `,
+          }}
+        />
       </head>
       <body>
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe 
+            src="https://www.googletagmanager.com/ns.html?id=GTM-MT292JCD"
+            height="0" 
+            width="0" 
+            style={{display: 'none', visibility: 'hidden'}}
+          />
+        </noscript>
+        {/* End Google Tag Manager (noscript) */}
+        
         <PerformanceOptimizer />
         <ThemeProvider>
           <Navbar />
@@ -84,11 +107,11 @@ export default function RootLayout({
                   {/* Social Media */}
                   <div className="flex items-center gap-3">
                     <a 
-                      href="https://twitter.com/trustyai" 
+                      href="https://x.com/Trustyai_net" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="w-9 h-9 rounded-lg bg-surface border border-border hover:border-primary-500 flex items-center justify-center transition"
-                      aria-label="Twitter/X"
+                      aria-label="X (Twitter)"
                     >
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
