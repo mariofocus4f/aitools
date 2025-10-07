@@ -5,6 +5,7 @@ import { Search, Moon, Sun, Menu, X, Mail } from 'lucide-react'
 import Link from 'next/link'
 import { NewsletterModal } from './NewsletterModal'
 import { SearchModal } from './SearchModal'
+import { ThemeToggle } from './ThemeToggle'
 
 export function Navbar() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light')
@@ -70,13 +71,7 @@ export function Navbar() {
 
           {/* Actions */}
           <div className="flex items-center space-x-4">
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg hover:bg-surface transition"
-              aria-label="Toggle theme"
-            >
-              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-            </button>
+            <ThemeToggle />
 
             <button 
               onClick={() => setSearchOpen(true)}

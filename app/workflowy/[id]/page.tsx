@@ -4,6 +4,7 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { workflowPrompts } from '@/lib/workflowyData'
+import { StructuredData } from '@/components/StructuredData'
 import { 
   Clock, 
   Star, 
@@ -38,7 +39,9 @@ export default function WorkflowDetailPage({ params }: PageProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800">
+    <>
+      <StructuredData type="workflow" data={workflow} />
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800">
       {/* Header */}
       <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm border-b border-gray-200 dark:border-slate-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
@@ -322,6 +325,7 @@ export default function WorkflowDetailPage({ params }: PageProps) {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   )
 }

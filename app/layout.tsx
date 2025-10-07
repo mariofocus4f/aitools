@@ -3,15 +3,55 @@ import './globals.css'
 import { Navbar } from '@/components/Navbar'
 import { ThemeProvider } from '@/components/ThemeProvider'
 import { NewsletterBanner } from '@/components/NewsletterBanner'
+import { StructuredData } from '@/components/StructuredData'
+import { PerformanceOptimizer } from '@/components/PerformanceOptimizer'
 
 export const metadata: Metadata = {
-  title: 'TrustyAI - Zaufany katalog narzędzi AI',
+  title: {
+    default: 'TrustyAI - Zaufany katalog narzędzi AI',
+    template: '%s | TrustyAI'
+  },
   description: 'Zaufany katalog narzędzi AI z funkcją wyszukiwania, porównywania i afiliacji. Znajdź idealne rozwiązanie AI dla swojego projektu.',
-  keywords: ['AI tools', 'narzędzia AI', 'sztuczna inteligencja', 'AI katalog', 'AI directory', 'TrustyAI'],
+  keywords: ['AI tools', 'narzędzia AI', 'sztuczna inteligencja', 'AI katalog', 'AI directory', 'TrustyAI', 'prompty AI', 'workflow AI'],
+  authors: [{ name: 'TrustyAI Team' }],
+  creator: 'TrustyAI',
+  publisher: 'TrustyAI',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
+    type: 'website',
+    locale: 'pl_PL',
+    url: 'https://trustyai.pl',
     title: 'TrustyAI - Zaufany katalog narzędzi AI',
     description: 'Zaufany katalog narzędzi AI z funkcją wyszukiwania, porównywania i afiliacji.',
-    type: 'website',
+    siteName: 'TrustyAI',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'TrustyAI - Katalog narzędzi AI',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'TrustyAI - Zaufany katalog narzędzi AI',
+    description: 'Zaufany katalog narzędzi AI z funkcją wyszukiwania, porównywania i afiliacji.',
+    images: ['/og-image.jpg'],
+    creator: '@trustyai',
+  },
+  verification: {
+    google: 'your-google-verification-code',
   },
 }
 
@@ -22,7 +62,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pl" suppressHydrationWarning>
+      <head>
+        <StructuredData type="website" />
+      </head>
       <body>
+        <PerformanceOptimizer />
         <ThemeProvider>
           <Navbar />
           <main className="min-h-screen">

@@ -3,7 +3,9 @@ import { workflowPrompts } from '@/lib/workflowyData'
 import { notFound } from 'next/navigation'
 import { ExternalLink, Check, TrendingUp, Calendar, Tag, BookOpen, Gift, Copy } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { CopyButton } from '@/components/CopyButton'
+import { StructuredData } from '@/components/StructuredData'
 
 export function generateStaticParams() {
   return mockTools.map((tool) => ({
@@ -31,17 +33,22 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
   )
 
   return (
-    <div className="min-h-screen py-12">
+    <>
+      <StructuredData type="tool" data={tool} />
+      <div className="min-h-screen py-12">
       <div className="container mx-auto px-4 max-w-6xl">
         {/* Hero */}
         <div className="glass-card rounded-2xl p-8 mb-8 shadow-card">
           <div className="flex flex-col md:flex-row gap-6">
             <div className="flex-shrink-0">
               {tool.logo ? (
-                <img 
+                <Image 
                   src={tool.logo} 
                   alt={`${tool.name} logo`}
+                  width={96}
+                  height={96}
                   className="w-24 h-24 rounded-2xl object-cover"
+                  priority
                 />
               ) : (
                 <div className="w-24 h-24 rounded-2xl gradient-primary" />
@@ -471,9 +478,11 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
                   <div className="glass-card rounded-2xl p-5 shadow-card hover:shadow-card-hover transition cursor-pointer">
                     <div className="flex items-center gap-3 mb-3">
                       {similarTool.logo ? (
-                        <img 
+                        <Image 
                           src={similarTool.logo} 
                           alt={similarTool.name}
+                          width={48}
+                          height={48}
                           className="w-12 h-12 rounded-xl object-cover"
                         />
                       ) : (
@@ -491,7 +500,8 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
           </section>
         )}
       </div>
-    </div>
+      </div>
+    </>
   )
 }
 

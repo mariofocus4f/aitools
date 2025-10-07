@@ -1,6 +1,7 @@
 import { SearchInput } from '@/components/SearchInput'
 import { ToolCard } from '@/components/ToolCard'
 import { PromptCard } from '@/components/PromptCard'
+import { FadeIn, SlideInUp, StaggeredFadeIn } from '@/components/FadeIn'
 import { 
   getFeaturedTools, 
   getNewTools, 
@@ -11,6 +12,7 @@ import { getFeaturedPrompts } from '@/lib/promptsData'
 import { getFeaturedWorkflows } from '@/lib/workflowyData'
 import { Sparkles, TrendingUp, Clock, Zap, Copy, ExternalLink } from 'lucide-react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function HomePage() {
   const featuredTools = getFeaturedTools()
@@ -32,35 +34,43 @@ export default function HomePage() {
 
         <div className="container mx-auto px-4 pt-20 pb-32">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Odkryj najlepsze{' '}
-              <span className="gradient-primary bg-clip-text text-transparent">
-                narzędzia AI
-              </span>
-            </h1>
-            <p className="text-xl text-muted mb-8 max-w-2xl mx-auto">
-              Zaufany katalog narzędzi AI z funkcją wyszukiwania, porównywania i szczegółowych recenzji.
-              Znajdź idealne rozwiązanie dla swojego projektu.
-            </p>
+            <SlideInUp>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                Odkryj najlepsze{' '}
+                <span className="gradient-primary bg-clip-text text-transparent">
+                  narzędzia AI
+                </span>
+              </h1>
+            </SlideInUp>
+            <FadeIn delay={200}>
+              <p className="text-xl text-muted mb-8 max-w-2xl mx-auto">
+                Zaufany katalog narzędzi AI z funkcją wyszukiwania, porównywania i szczegółowych recenzji.
+                Znajdź idealne rozwiązanie dla swojego projektu.
+              </p>
+            </FadeIn>
 
             {/* Search */}
-            <div className="max-w-2xl mx-auto mb-8">
-              <SearchInput 
-                placeholder="Co chcesz zrobić z AI? np. 'napisać artykuł', 'stworzyć logo'..."
-              />
-            </div>
+            <FadeIn delay={400}>
+              <div className="max-w-2xl mx-auto mb-8">
+                <SearchInput 
+                  placeholder="Co chcesz zrobić z AI? np. 'napisać artykuł', 'stworzyć logo'..."
+                />
+              </div>
+            </FadeIn>
 
             {/* Quick chips */}
-            <div className="flex flex-wrap gap-2 justify-center">
-              {['Pisanie tekstów', 'Generowanie grafik', 'Analiza danych', 'Tworzenie wideo'].map(chip => (
-                <button
-                  key={chip}
-                  className="px-4 py-2 rounded-full glass-card text-sm hover:shadow-card transition"
-                >
-                  {chip}
-                </button>
-              ))}
-            </div>
+            <FadeIn delay={600}>
+              <div className="flex flex-wrap gap-2 justify-center">
+                {['Pisanie tekstów', 'Generowanie grafik', 'Analiza danych', 'Tworzenie wideo'].map(chip => (
+                  <button
+                    key={chip}
+                    className="px-4 py-2 rounded-full glass-card text-sm hover:shadow-card transition"
+                  >
+                    {chip}
+                  </button>
+                ))}
+              </div>
+            </FadeIn>
 
             {/* CTA */}
             <div className="mt-8 flex gap-4 justify-center flex-wrap">
@@ -82,16 +92,18 @@ export default function HomePage() {
       {/* Featured Tools */}
       <section className="py-16 bg-surface/50">
         <div className="container mx-auto px-4">
-          <div className="flex items-center gap-3 mb-8">
-            <Sparkles className="text-primary-500" size={28} />
-            <h2 className="text-3xl font-bold">Wyróżnione narzędzia</h2>
-          </div>
+          <FadeIn>
+            <div className="flex items-center gap-3 mb-8">
+              <Sparkles className="text-primary-500" size={28} />
+              <h2 className="text-3xl font-bold">Wyróżnione narzędzia</h2>
+            </div>
+          </FadeIn>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <StaggeredFadeIn className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {featuredTools.map(tool => (
               <ToolCard key={tool.id} tool={tool} showAffiliateInfo />
             ))}
-          </div>
+          </StaggeredFadeIn>
         </div>
       </section>
 
