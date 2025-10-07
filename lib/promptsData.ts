@@ -72,6 +72,54 @@ export const promptRoles: PromptRole[] = [
     icon: '🏛️',
     description: 'Dokumenty urzędowe, raporty, analizy',
     color: '#7C3AED'
+  },
+  {
+    id: '10',
+    name: 'Content Creation',
+    slug: 'content-creation',
+    icon: '✍️',
+    description: 'Blogi, artykuły, social media content',
+    color: '#FF8C42'
+  },
+  {
+    id: '11',
+    name: 'Design & Creative',
+    slug: 'design-creative',
+    icon: '🎨',
+    description: 'Grafika, branding, creative briefs',
+    color: '#8B5CF6'
+  },
+  {
+    id: '12',
+    name: 'Legal & Compliance',
+    slug: 'legal-compliance',
+    icon: '⚖️',
+    description: 'Umowy, regulaminy, compliance',
+    color: '#059669'
+  },
+  {
+    id: '13',
+    name: 'Healthcare & Medical',
+    slug: 'healthcare-medical',
+    icon: '🏥',
+    description: 'Dokumentacja medyczna, raporty, analizy',
+    color: '#DC2626'
+  },
+  {
+    id: '14',
+    name: 'Real Estate',
+    slug: 'real-estate',
+    icon: '🏠',
+    description: 'Opisy nieruchomości, wyceny, analizy rynku',
+    color: '#0891B2'
+  },
+  {
+    id: '15',
+    name: 'eCommerce & Retail',
+    slug: 'ecommerce-retail',
+    icon: '🛒',
+    description: 'Opisy produktów, SEO, marketing',
+    color: '#EA580C'
   }
 ]
 
@@ -529,6 +577,350 @@ Level: [Bloom's level]`,
     views: 6340,
     isPremium: false,
     createdAt: new Date('2025-02-08'),
+    updatedAt: new Date()
+  },
+
+  // Content Creation
+  {
+    id: 'p11',
+    title: 'Blog Post Outline Generator',
+    slug: 'blog-post-outline-generator',
+    description: 'Struktura artykułu blogowego z SEO',
+    content: `Stwórz outline dla artykułu blogowego:
+
+Temat: [TOPIC]
+Słowo kluczowe: [MAIN_KEYWORD]
+Długość: [WORD_COUNT] słów
+Grupa docelowa: [TARGET_AUDIENCE]
+
+Struktura:
+1. **Title** (3 warianty, max 60 znaków)
+2. **Meta Description** (155 znaków)
+3. **Introduction** (150-200 słów)
+   - Hook (pierwsze zdanie)
+   - Problem statement
+   - Preview tego co czytelnik się dowie
+4. **Main Content** (H2 headings z opisem)
+   - H2: [Temat sekcji]
+     - 3-5 kluczowych punktów
+     - Przykłady/case studies
+   - H2: [Następna sekcja]
+     - ...
+5. **Conclusion** (100-150 słów)
+   - Podsumowanie kluczowych punktów
+   - Call-to-action
+6. **FAQ Section** (5 pytań)
+7. **Related Keywords** (10 LSI keywords)
+
+Ton: [PROFESSIONAL/CASUAL/AUTHORITATIVE]`,
+    role: promptRoles[9], // Content Creation
+    category: 'Blog Writing',
+    tags: ['blog', 'content', 'seo', 'outline'],
+    difficulty: 'intermediate',
+    useCase: 'Planowanie treści blogowych',
+    recommendedTools: ['1', '3'],
+    likes: 298,
+    views: 4200,
+    isPremium: false,
+    createdAt: new Date('2025-02-12'),
+    updatedAt: new Date()
+  },
+
+  // Design & Creative
+  {
+    id: 'p12',
+    title: 'Creative Brief Generator',
+    slug: 'creative-brief-generator',
+    description: 'Profesjonalny brief dla projektów kreatywnych',
+    content: `Stwórz creative brief dla projektu:
+
+Typ projektu: [PROJECT_TYPE - logo/website/campaign/branding]
+Klient: [CLIENT_NAME]
+Branża: [INDUSTRY]
+Budżet: [BUDGET_RANGE]
+Timeline: [DEADLINE]
+
+Brief powinien zawierać:
+
+**1. Project Overview**
+- Cel projektu
+- Problem do rozwiązania
+- Success metrics
+
+**2. Target Audience**
+- Demographics
+- Psychographics
+- Pain points
+- Motivations
+
+**3. Brand Guidelines**
+- Brand personality
+- Tone of voice
+- Color preferences
+- Style references
+
+**4. Project Requirements**
+- Deliverables
+- Technical specs
+- Constraints
+- Must-haves vs nice-to-haves
+
+**5. Creative Direction**
+- Mood/feeling
+- Visual style
+- Inspiration references
+- What to avoid
+
+**6. Timeline & Milestones**
+- Key dates
+- Review points
+- Final delivery
+
+Format: Gotowy do wysłania klientowi/zespołowi.`,
+    role: promptRoles[10], // Design & Creative
+    category: 'Creative Brief',
+    tags: ['design', 'brief', 'creative', 'project'],
+    difficulty: 'intermediate',
+    useCase: 'Przygotowanie briefów dla projektów kreatywnych',
+    recommendedTools: ['1', '5'],
+    likes: 156,
+    views: 2100,
+    isPremium: false,
+    createdAt: new Date('2025-02-15'),
+    updatedAt: new Date()
+  },
+
+  // Legal & Compliance
+  {
+    id: 'p13',
+    title: 'Privacy Policy Generator',
+    slug: 'privacy-policy-generator',
+    description: 'Generowanie polityki prywatności',
+    content: `Stwórz politykę prywatności dla:
+
+Typ biznesu: [BUSINESS_TYPE]
+Lokalizacja: [COUNTRY/REGION]
+GDPR compliance: [YES/NO]
+COPPA compliance: [YES/NO]
+
+Sekcje do uwzględnienia:
+
+**1. Information We Collect**
+- Personal data
+- Usage data
+- Cookies
+- Third-party data
+
+**2. How We Use Information**
+- Service provision
+- Communication
+- Marketing
+- Legal compliance
+
+**3. Data Sharing**
+- Third parties
+- Service providers
+- Legal requirements
+- Business transfers
+
+**4. Data Security**
+- Security measures
+- Data retention
+- Breach notification
+
+**5. Your Rights**
+- Access
+- Correction
+- Deletion
+- Portability
+- Objection
+
+**6. Cookies**
+- Types of cookies
+- Purpose
+- Management
+
+**7. Contact Information**
+- Data controller
+- DPO contact
+- Complaints
+
+**DISCLAIMER: To jest szablon. Zawsze konsultuj z prawnikiem.**
+
+Format: Profesjonalny, zgodny z prawem.`,
+    role: promptRoles[11], // Legal & Compliance
+    category: 'Legal Documents',
+    tags: ['legal', 'privacy', 'gdpr', 'compliance'],
+    difficulty: 'advanced',
+    useCase: 'Tworzenie dokumentów prawnych',
+    recommendedTools: ['1'],
+    likes: 89,
+    views: 1200,
+    isPremium: true,
+    createdAt: new Date('2025-02-18'),
+    updatedAt: new Date()
+  },
+
+  // Healthcare & Medical
+  {
+    id: 'p14',
+    title: 'Medical Report Summary',
+    slug: 'medical-report-summary',
+    description: 'Podsumowanie raportów medycznych',
+    content: `Przeanalizuj i podsumuj raport medyczny:
+
+Typ raportu: [REPORT_TYPE - lab/imaging/consultation]
+Specjalizacja: [SPECIALTY]
+Pacjent: [AGE/GENDER] (bez danych osobowych)
+
+**DISCLAIMER: To narzędzie wspomagające. Zawsze konsultuj z lekarzem.**
+
+Struktura podsumowania:
+
+**1. Executive Summary**
+- Główne ustalenia (3-5 punktów)
+- Poziom pilności
+- Rekomendacje
+
+**2. Key Findings**
+- Wyniki badań
+- Odchylenia od normy
+- Interpretacja
+
+**3. Clinical Assessment**
+- Diagnoza różnicowa
+- Czynniki ryzyka
+- Prognoza
+
+**4. Recommendations**
+- Dalsze badania
+- Leczenie
+- Kontrola
+- Lifestyle changes
+
+**5. Follow-up**
+- Kiedy wrócić
+- Na co zwrócić uwagę
+- Alarmujące objawy
+
+**6. Patient Education**
+- Wyjaśnienie w prostych słowach
+- FAQ
+- Resources
+
+Format: Profesjonalny, ale zrozumiały dla pacjenta.`,
+    role: promptRoles[12], // Healthcare & Medical
+    category: 'Medical Documentation',
+    tags: ['medical', 'healthcare', 'reports', 'diagnosis'],
+    difficulty: 'advanced',
+    useCase: 'Analiza dokumentacji medycznej',
+    recommendedTools: ['1'],
+    likes: 67,
+    views: 890,
+    isPremium: true,
+    createdAt: new Date('2025-02-20'),
+    updatedAt: new Date()
+  },
+
+  // Real Estate
+  {
+    id: 'p15',
+    title: 'Property Description Generator',
+    slug: 'property-description-generator',
+    description: 'Atrakcyjne opisy nieruchomości',
+    content: `Napisz opis nieruchomości dla:
+
+Typ: [PROPERTY_TYPE - apartment/house/commercial]
+Lokalizacja: [LOCATION]
+Powierzchnia: [SIZE] m²
+Cena: [PRICE]
+Stan: [CONDITION]
+
+Opis powinien zawierać:
+
+**1. Headline** (przyciągający uwagę)
+**2. Location Benefits** (3-4 zalety lokalizacji)
+**3. Property Features** (5-7 kluczowych cech)
+**4. Interior Details** (pokoje, wyposażenie)
+**5. Exterior/Common Areas** (balkon, ogród, parking)
+**6. Investment Potential** (jeśli dotyczy)
+**7. Call to Action** (zachęta do kontaktu)
+
+Style:
+- Emocjonalny ale profesjonalny
+- Konkretne liczby i dane
+- Unikaj cliché ("idealne miejsce")
+- Używaj sensorycznych opisów
+- Podkreśl unikalne cechy
+
+Max 300 słów. SEO-friendly.`,
+    role: promptRoles[13], // Real Estate
+    category: 'Property Marketing',
+    tags: ['real estate', 'property', 'marketing', 'descriptions'],
+    difficulty: 'beginner',
+    useCase: 'Tworzenie opisów nieruchomości',
+    recommendedTools: ['1', '7'],
+    likes: 234,
+    views: 3200,
+    isPremium: false,
+    createdAt: new Date('2025-02-22'),
+    updatedAt: new Date()
+  },
+
+  // eCommerce & Retail
+  {
+    id: 'p16',
+    title: 'Product Review Generator',
+    slug: 'product-review-generator',
+    description: 'Automatyczne generowanie recenzji produktów',
+    content: `Napisz recenzję produktu:
+
+Produkt: [PRODUCT_NAME]
+Kategoria: [CATEGORY]
+Cena: [PRICE]
+Główne cechy: [KEY_FEATURES]
+Grupa docelowa: [TARGET_AUDIENCE]
+
+Struktura recenzji:
+
+**1. Introduction** (50 słów)
+- Co to za produkt
+- Dla kogo jest przeznaczony
+- Główna korzyść
+
+**2. Key Features** (100 słów)
+- 3-5 najważniejszych cech
+- Jak działają
+- Korzyści dla użytkownika
+
+**3. Pros & Cons** (80 słów)
+- Zalety (3-4 punkty)
+- Wady (2-3 punkty)
+- Obiektywna ocena
+
+**4. Performance** (60 słów)
+- Jak sprawdza się w praktyce
+- Porównanie z konkurencją
+- Wartość za pieniądze
+
+**5. Verdict** (40 słów)
+- Rekomendacja
+- Kto powinien kupić
+- Alternatywy
+
+**6. Rating** (1-5 gwiazdek z uzasadnieniem)
+
+Ton: Obiektywny, pomocny, autentyczny.`,
+    role: promptRoles[14], // eCommerce & Retail
+    category: 'Product Reviews',
+    tags: ['ecommerce', 'reviews', 'products', 'retail'],
+    difficulty: 'intermediate',
+    useCase: 'Tworzenie recenzji produktów',
+    recommendedTools: ['1', '7'],
+    likes: 345,
+    views: 4800,
+    isPremium: false,
+    createdAt: new Date('2025-02-25'),
     updatedAt: new Date()
   }
 ]

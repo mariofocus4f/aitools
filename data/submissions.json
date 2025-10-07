@@ -1,0 +1,89 @@
+[
+  {
+    "id": "1759828163697-hsybo7",
+    "status": "new",
+    "submittedAt": "2025-10-07T09:09:23.697Z",
+    "submitterName": "Mariusz",
+    "submitterEmail": "labudda1982@gmail.com",
+    "tool": {
+      "name": "User Submitted",
+      "domain": "https://example.org",
+      "shortDescription": "Zgłoszone przez usera",
+      "longDescription": null,
+      "categories": [],
+      "pricingModels": []
+    }
+  },
+  {
+    "id": "1759828077212-t0kgb7",
+    "status": "new",
+    "submittedAt": "2025-10-07T09:07:57.212Z",
+    "submitterName": null,
+    "submitterEmail": "bot@trustyai.pl",
+    "tool": {
+      "name": "Trusty Final",
+      "domain": "https://trustyai.pl",
+      "shortDescription": "Zgłoszenie z polem Status=new",
+      "longDescription": null,
+      "categories": [],
+      "pricingModels": []
+    }
+  },
+  {
+    "id": "1759828033670-ix3ork",
+    "status": "new",
+    "submittedAt": "2025-10-07T09:07:13.670Z",
+    "submitterName": "Bot",
+    "submitterEmail": "bot@trustyai.pl",
+    "tool": {
+      "name": "Trusty Tester 2",
+      "domain": "https://trustyai.pl",
+      "shortDescription": "Zgłoszenie po poprawce",
+      "longDescription": null,
+      "categories": [
+        "testing"
+      ],
+      "pricingModels": [
+        "free"
+      ]
+    }
+  },
+  {
+    "id": "1759827882268-3xdamk",
+    "status": "new",
+    "submittedAt": "2025-10-07T09:04:42.268Z",
+    "submitterName": "Bot",
+    "submitterEmail": "bot@trustyai.pl",
+    "tool": {
+      "name": "Trusty Tester",
+      "domain": "https://trustyai.pl",
+      "shortDescription": "Zgłoszenie testowe",
+      "longDescription": null,
+      "categories": [
+        "testing"
+      ],
+      "pricingModels": [
+        "free"
+      ]
+    }
+  },
+  {
+    "id": "1759827808863-5dox53",
+    "status": "new",
+    "submittedAt": "2025-10-07T09:03:28.863Z",
+    "submitterName": "Mariusz",
+    "submitterEmail": "labudda1982@gmail.com",
+    "tool": {
+      "name": "Test Tool",
+      "domain": "https://example.com",
+      "shortDescription": "Opis testowy",
+      "longDescription": "Dłuższy opis",
+      "categories": [
+        "marketing"
+      ],
+      "pricingModels": [
+        "free"
+      ]
+    }
+  }
+]

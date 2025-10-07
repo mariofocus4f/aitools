@@ -23,7 +23,7 @@ export default function PromptsPage() {
           <h2 className="text-2xl font-bold mb-6">Wybierz swoją rolę</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {promptRoles.map(role => (
-              <Link key={role.id} href={`/prompts/role/${role.slug}`}>
+              <Link key={role.id} href={`/workflowy`}>
                 <div 
                   className="p-4 rounded-xl glass-card shadow-card hover:shadow-card-hover transition cursor-pointer text-center group"
                   style={{ borderTop: `3px solid ${role.color}` }}

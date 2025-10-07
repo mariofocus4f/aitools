@@ -53,8 +53,8 @@ export function Navbar() {
             <Link href="/categories" className="text-muted hover:text-text transition">
               Narzędzia
             </Link>
-            <Link href="/prompts" className="text-muted hover:text-text transition">
-              Prompty
+            <Link href="/workflowy" className="text-muted hover:text-text transition">
+              Prompty & Workflowy
             </Link>
             <Link href="/compare" className="text-muted hover:text-text transition">
               Porównaj
@@ -115,11 +115,11 @@ export function Navbar() {
                 Narzędzia
               </Link>
               <Link
-                href="/prompts"
+                href="/workflowy"
                 className="py-2 text-muted hover:text-text transition"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Prompty
+                Prompty & Workflowy
               </Link>
               <Link
                 href="/compare"

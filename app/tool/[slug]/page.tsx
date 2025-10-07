@@ -1,6 +1,9 @@
+'use client'
+
 import { mockTools } from '@/lib/mockData'
+import { workflowPrompts } from '@/lib/workflowyData'
 import { notFound } from 'next/navigation'
-import { ExternalLink, Check, TrendingUp, Calendar, Tag, BookOpen, Gift } from 'lucide-react'
+import { ExternalLink, Check, TrendingUp, Calendar, Tag, BookOpen, Gift, Copy } from 'lucide-react'
 import Link from 'next/link'
 
 export function generateStaticParams() {
@@ -21,6 +24,12 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
       tool.categories.some(toolCat => toolCat.id === cat.id)
     ))
     .slice(0, 3)
+
+  // Znajdź prompty związane z tym narzędziem
+  const relatedPrompts = workflowPrompts.filter(workflow => 
+    workflow.primaryTool.id === tool.id || 
+    workflow.alternativeTools.some(altTool => altTool.id === tool.id)
+  )
 
   return (
     <div className="min-h-screen py-12">
@@ -379,6 +388,79 @@ export default function ToolPage({ params }: { params: { slug: string } }) {
             )}
           </div>
         </div>
+
+        {/* Related Prompts */}
+        {relatedPrompts.length > 0 && (
+          <section className="mt-16">
+            <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+              <Copy size={24} />
+              Gotowe prompty dla {tool.name}
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {relatedPrompts.map(workflow => (
+                <div key={workflow.id} className="glass-card rounded-2xl p-6 shadow-card">
+                  <div className="flex items-start justify-between gap-3 mb-4">
+                    <div>
+                      <h3 className="text-lg font-semibold text-text dark:text-white mb-2">
+                        {workflow.title}
+                      </h3>
+                      <p className="text-sm text-muted line-clamp-2">
+                        {workflow.description}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-1 text-yellow-500">
+                      <span className="text-sm">★</span>
+                      <span className="text-sm font-medium">{workflow.rating}</span>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-center gap-4 text-xs text-muted mb-4">
+                    <div className="flex items-center gap-1">
+                      <Calendar size={12} />
+                      {workflow.estimatedTime}
+                    </div>
+                    <div className="flex items-center gap-1">
+                      <TrendingUp size={12} />
+                      {workflow.usageCount.toLocaleString()} użyć
+                    </div>
+                  </div>
+                  
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {workflow.tags.slice(0, 3).map(tag => (
+                      <span key={tag} className="px-2 py-1 text-xs rounded-full bg-primary-50 text-primary-700 border border-primary-100">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => navigator.clipboard.writeText(workflow.prompt)}
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition-colors text-sm"
+                    >
+                      <Copy size={16} />
+                      Skopiuj prompt
+                    </button>
+                    <Link href={`/workflowy/${workflow.id}`}>
+                      <button className="px-4 py-2 border border-border rounded-lg hover:bg-surface transition-colors text-sm">
+                        Zobacz szczegóły
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            <div className="text-center mt-6">
+              <Link href="/workflowy">
+                <button className="btn-primary flex items-center gap-2 mx-auto">
+                  <Copy size={18} />
+                  Przeglądaj wszystkie prompty
+                </button>
+              </Link>
+            </div>
+          </section>
+        )}
 
         {/* Similar Tools */}
         {similarTools.length > 0 && (

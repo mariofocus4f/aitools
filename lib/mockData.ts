@@ -1,18 +1,38 @@
 import type { Tool, Category } from '@/types'
 
 export const mockCategories: Category[] = [
-  { id: '1', name: 'Generowanie tekstu', slug: 'text-generation', icon: '✍️', description: 'Narzędzia do tworzenia treści tekstowych' },
-  { id: '2', name: 'Generowanie obrazów', slug: 'image-generation', icon: '🎨', description: 'AI do tworzenia grafiki i obrazów' },
-  { id: '3', name: 'Generowanie wideo', slug: 'video-generation', icon: '🎬', description: 'Narzędzia do produkcji wideo' },
-  { id: '4', name: 'SEO & Marketing', slug: 'seo-marketing', icon: '📈', description: 'Optymalizacja i marketing' },
-  { id: '5', name: 'Asystenci AI', slug: 'ai-assistants', icon: '🤖', description: 'Chatboty i asystenci' },
-  { id: '6', name: 'Analiza danych', slug: 'data-analysis', icon: '📊', description: 'Analityka i insights' },
-  { id: '7', name: 'Audio & Muzyka', slug: 'audio-music', icon: '🎵', description: 'Generowanie i edycja audio' },
-  { id: '8', name: 'Produktywność', slug: 'productivity', icon: '⚡', description: 'Narzędzia do efektywnej pracy' },
-  { id: '9', name: 'Prezentacje', slug: 'presentations', icon: '📊', description: 'Tworzenie prezentacji i slajdów' },
-  { id: '10', name: 'Kod i Development', slug: 'code-development', icon: '💻', description: 'Narzędzia dla programistów' },
-  { id: '11', name: 'Design & UI/UX', slug: 'design-ui-ux', icon: '🎨', description: 'Projektowanie interfejsów' },
-  { id: '12', name: 'Email & Komunikacja', slug: 'email-communication', icon: '✉️', description: 'Email marketing i komunikacja' },
+  // Core kategorie (priorytetowe)
+  { id: '1', name: 'Generative AI', slug: 'generative-ai', icon: '🎨', description: 'Narzędzia generatywne - tekst, obrazy, wideo, audio, 3D' },
+  { id: '2', name: 'Marketing & Sales', slug: 'marketing-sales', icon: '📈', description: 'AI do marketingu i sprzedaży - SEO, reklamy, social media' },
+  { id: '3', name: 'Productivity & Office', slug: 'productivity-office', icon: '⚡', description: 'Automatyzacja pracy biurowej, notatki, organizacja czasu' },
+  { id: '4', name: 'Code & Developer Tools', slug: 'code-developer-tools', icon: '💻', description: 'Narzędzia dla programistów - copilots, generatory kodu' },
+  { id: '5', name: 'AI Agents & Copilots', slug: 'ai-agents-copilots', icon: '🤖', description: 'Autonomiczne agenty i zaawansowane asystenty AI' },
+  
+  // Kategorie generatywne (podział Generative AI)
+  { id: '6', name: 'Text Generation', slug: 'text-generation', icon: '✍️', description: 'Generowanie treści tekstowych, copywriting, chatboty' },
+  { id: '7', name: 'Image Generation', slug: 'image-generation', icon: '🖼️', description: 'AI do tworzenia grafiki, obrazów i wizualizacji' },
+  { id: '8', name: 'Video Generation', slug: 'video-generation', icon: '🎬', description: 'Produkcja wideo AI, edycja, efekty specjalne' },
+  { id: '9', name: 'Audio & Music', slug: 'audio-music', icon: '🎵', description: 'Generowanie i edycja audio, muzyka, podcasty' },
+  { id: '10', name: '3D & Design', slug: '3d-design', icon: '🎨', description: 'Modelowanie 3D, design, wizualizacje architektoniczne' },
+  
+  // Kategorie branżowe
+  { id: '11', name: 'Data & Analytics', slug: 'data-analytics', icon: '📊', description: 'Analityka danych, BI, predykcje, dashboardy' },
+  { id: '12', name: 'Research & Education', slug: 'research-education', icon: '🎓', description: 'Narzędzia edukacyjne, research, nauka z AI' },
+  { id: '13', name: 'Business Automation', slug: 'business-automation', icon: '⚙️', description: 'Automatyzacja procesów biznesowych, workflow' },
+  { id: '14', name: 'Customer Support', slug: 'customer-support', icon: '🎧', description: 'Chatboty, voice-boty, wsparcie klienta' },
+  { id: '15', name: 'Design & UI/UX', slug: 'design-ui-ux', icon: '🎨', description: 'Projektowanie interfejsów, UX, grafika' },
+  { id: '16', name: 'Presentation & Video', slug: 'presentation-video', icon: '📺', description: 'Prezentacje, wideo biznesowe, awatary' },
+  { id: '17', name: 'HR & Recruiting', slug: 'hr-recruiting', icon: '👥', description: 'Rekrutacja, analiza CV, HR automation' },
+  { id: '18', name: 'Legal & Finance', slug: 'legal-finance', icon: '⚖️', description: 'Analiza umów, finanse, compliance' },
+  { id: '19', name: 'Healthcare', slug: 'healthcare', icon: '🏥', description: 'Medycyna, diagnostyka, wellness AI' },
+  { id: '20', name: 'Real Estate', slug: 'real-estate', icon: '🏠', description: 'Nieruchomości, wyceny, inwestycje' },
+  { id: '21', name: 'eCommerce & Retail', slug: 'ecommerce-retail', icon: '🛒', description: 'E-handel, rekomendacje, optymalizacja' },
+  { id: '22', name: 'Social Media & Influencer', slug: 'social-media-influencer', icon: '📱', description: 'Social media, influencer marketing, content' },
+  
+  // Unikalne kategorie TrustyAI
+  { id: '23', name: 'Prompty & Workflowy', slug: 'prompty-workflowy', icon: '🔗', description: 'Gotowe prompty + narzędzia - use-case do rozwiązania' },
+  { id: '24', name: 'API & Infrastructure', slug: 'api-infrastructure', icon: '🔧', description: 'Platformy API, MLOps, hosting modeli' },
+  { id: '25', name: 'Open Source & Models', slug: 'open-source-models', icon: '📦', description: 'Modele open-source, dataset, self-hosted tools' },
 ]
 
 export const mockTools: Tool[] = [
@@ -66,7 +86,7 @@ export const mockTools: Tool[] = [
         features: ['Wszystko z Plus', 'Workspace dla zespołu', 'Admin controls', 'Wyższe limity']
       }
     ],
-    categories: [mockCategories[0], mockCategories[4]],
+    categories: [mockCategories[5], mockCategories[4]], // Text Generation, AI Agents
     tags: ['chatbot', 'GPT-4', 'konwersacja', 'pisanie', 'AI'],
     integrations: ['API', 'Slack', 'Microsoft Teams', 'Zapier'],
     affiliateProgram: {
@@ -132,7 +152,7 @@ export const mockTools: Tool[] = [
         features: ['30h GPU/miesiąc', 'Stealth mode', 'Max concurrent jobs', 'Commercial use']
       }
     ],
-    categories: [mockCategories[1], mockCategories[10]],
+    categories: [mockCategories[6], mockCategories[14]], // Image Generation, Design & UI/UX
     tags: ['grafika', 'AI art', 'generowanie', 'kreatywność', 'design'],
     integrations: ['Discord', 'API (beta)'],
     affiliateProgram: {
@@ -206,7 +226,7 @@ export const mockTools: Tool[] = [
         features: ['Custom users', 'Unlimited words', 'Dedicated account manager', 'API access', 'Custom AI training']
       }
     ],
-    categories: [mockCategories[0], mockCategories[3]],
+    categories: [mockCategories[5], mockCategories[1]], // Text Generation, Marketing & Sales
     tags: ['copywriting', 'marketing', 'SEO', 'blog', 'content'],
     integrations: ['Surfer SEO', 'Grammarly', 'Chrome Extension', 'WordPress', 'Google Docs'],
     affiliateProgram: {
@@ -272,7 +292,7 @@ export const mockTools: Tool[] = [
         features: ['2250 credits/miesiąc', 'Priority generation', '4K export', 'Unlimited assets']
       }
     ],
-    categories: [mockCategories[2]],
+    categories: [mockCategories[7]], // Video Generation
     tags: ['wideo', 'edycja', 'generowanie', 'effects', 'AI tools'],
     integrations: ['Adobe Premiere', 'Final Cut Pro', 'API'],
     affiliateProgram: {
@@ -331,7 +351,7 @@ export const mockTools: Tool[] = [
         features: ['Unlimited AI', 'Wszystkie funkcje AI', 'Integracja z workspace']
       }
     ],
-    categories: [mockCategories[7], mockCategories[0]],
+    categories: [mockCategories[2], mockCategories[5]], // Productivity & Office, Text Generation
     tags: ['produktywność', 'notatki', 'organizacja', 'pisanie', 'workspace'],
     integrations: ['Notion', 'Slack', 'Google Drive', 'Figma'],
     verifiedByEditor: true,
@@ -393,7 +413,7 @@ export const mockTools: Tool[] = [
         features: ['Custom minutes', 'Unlimited custom avatars', 'SSO', 'Dedicated manager', 'API access']
       }
     ],
-    categories: [mockCategories[2], mockCategories[8]],
+    categories: [mockCategories[7], mockCategories[15]], // Video Generation, Presentation & Video
     tags: ['wideo', 'awatary', 'prezentacje', 'szkolenia', 'AI video'],
     integrations: ['PowerPoint', 'API', 'Zapier'],
     affiliateProgram: {
@@ -459,7 +479,7 @@ export const mockTools: Tool[] = [
         features: ['Custom words', 'Unlimited users', 'Custom workflows', 'Dedicated manager']
       }
     ],
-    categories: [mockCategories[0], mockCategories[3]],
+    categories: [mockCategories[5], mockCategories[1]], // Text Generation, Marketing & Sales
     tags: ['copywriting', 'marketing', 'social media', 'e-commerce'],
     integrations: ['Chrome Extension', 'WordPress', 'Shopify'],
     affiliateProgram: {

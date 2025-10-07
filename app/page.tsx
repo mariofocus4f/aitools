@@ -8,7 +8,8 @@ import {
   mockCategories 
 } from '@/lib/mockData'
 import { getFeaturedPrompts } from '@/lib/promptsData'
-import { Sparkles, TrendingUp, Clock, Zap } from 'lucide-react'
+import { getFeaturedWorkflows } from '@/lib/workflowyData'
+import { Sparkles, TrendingUp, Clock, Zap, Copy, ExternalLink } from 'lucide-react'
 import Link from 'next/link'
 
 export default function HomePage() {
@@ -16,6 +17,7 @@ export default function HomePage() {
   const newTools = getNewTools()
   const highEpcTools = getHighestEpcTools()
   const featuredPrompts = getFeaturedPrompts()
+  const featuredWorkflows = getFeaturedWorkflows()
 
   return (
     <div className="min-h-screen">
@@ -125,6 +127,85 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Prompty & Workflowy Section */}
+      <section className="py-16 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-slate-800 dark:to-slate-700">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <Copy className="w-4 h-4" />
+              Unikalna funkcja TrustyAI
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Prompty & Workflowy
+            </h2>
+            <p className="text-lg text-muted mb-8 max-w-3xl mx-auto">
+              Od <span className="font-semibold text-blue-600 dark:text-blue-400">"potrzebuję zrobić X z AI"</span> do <span className="font-semibold text-green-600 dark:text-green-400">"mam działające rozwiązanie"</span> w minutach
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+            {featuredWorkflows.slice(0, 3).map(workflow => (
+              <div key={workflow.id} className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-slate-700 hover:shadow-lg transition-all duration-300">
+                <div className="flex items-start justify-between mb-4">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                      <Copy className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                    </div>
+                    <span className="text-sm font-medium text-blue-600 dark:text-blue-400">
+                      {workflow.category.replace('-', ' ')}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1 text-yellow-500">
+                    <Sparkles className="w-4 h-4 fill-current" />
+                    <span className="text-sm font-medium">{workflow.rating}</span>
+                  </div>
+                </div>
+                
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                  {workflow.title}
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                  {workflow.description}
+                </p>
+                
+                <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400 mb-4">
+                  <div className="flex items-center gap-1">
+                    <Clock className="w-3 h-3" />
+                    {workflow.estimatedTime}
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <TrendingUp className="w-3 h-3" />
+                    {workflow.usageCount.toLocaleString()}
+                  </div>
+                </div>
+                
+                <div className="flex gap-2">
+                  <Link href={`/workflowy/${workflow.id}`} className="flex-1">
+                    <button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm py-3 px-4 rounded-lg transition-colors">
+                      Zobacz workflow
+                    </button>
+                  </Link>
+                  <Link href={workflow.primaryTool.websiteUrl} target="_blank">
+                    <button className="p-3 border border-gray-300 dark:border-slate-600 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors">
+                      <ExternalLink className="w-4 h-4" />
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link href="/workflowy">
+              <button className="btn-primary flex items-center gap-2 mx-auto">
+                <Copy size={18} />
+                Przeglądaj wszystkie workflow
+              </button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Prompts Section */}
       <section className="py-16 bg-surface/50">
         <div className="container mx-auto px-4">
@@ -143,7 +224,7 @@ export default function HomePage() {
           </div>
 
           <div className="text-center">
-            <Link href="/prompts">
+            <Link href="/workflowy">
               <button className="btn-primary flex items-center gap-2 mx-auto">
                 <Sparkles size={18} />
                 Zobacz wszystkie prompty
@@ -158,14 +239,19 @@ export default function HomePage() {
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold mb-8 text-center">Kategorie narzędzi</h2>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
-            {mockCategories.slice(0, 8).map(category => (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto">
+            {mockCategories.slice(0, 12).map(category => (
               <Link key={category.id} href={`/category/${category.slug}`}>
                 <div className="p-6 rounded-2xl glass-card shadow-card hover:shadow-card-hover transition-all text-center group cursor-pointer">
                   <div className="text-4xl mb-3">{category.icon}</div>
-                  <h3 className="font-semibold group-hover:text-primary-500 transition">
+                  <h3 className="font-semibold group-hover:text-primary-500 transition text-sm">
                     {category.name}
                   </h3>
+                         <p className="text-xs text-muted mt-1 hidden md:block">
+                           {category.description && category.description.length > 50 
+                             ? category.description.substring(0, 50) + '...' 
+                             : category.description}
+                         </p>
                 </div>
               </Link>
             ))}
@@ -179,7 +265,7 @@ export default function HomePage() {
               </button>
             </Link>
             <p className="text-sm text-muted mt-2">
-              + {mockCategories.length - 8} więcej kategorii
+              + {mockCategories.length - 12} więcej kategorii
             </p>
           </div>
         </div>

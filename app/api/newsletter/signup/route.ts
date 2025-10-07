@@ -20,8 +20,8 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // For development - if token is invalid, show maintenance message
-    if (process.env.NODE_ENV === 'development') {
+    // Optional development fake mode (opt-in only)
+    if (process.env.DEV_NEWSLETTER_FAKE === '1') {
       console.log('Development mode: Newsletter signup attempted with email:', email)
       return NextResponse.json(
         { 
